@@ -2,8 +2,7 @@ import os
 import re
 from datetime import datetime
 
-# users = [{"email": "salma@gmail.com", "password": "123456789"},
-#          {"email": "yasser@gmail.com", "password": "123456789"}]
+users = [{"email": "salma@gmail.com", "password": "123456789"},{"email": "yasser@gmail.com", "password": "123456789"}]
 
 # projects = [
 # {'title': "project1", 'details': "here is project1", "target": 100000, "created_by": 'salma@gmail.com', "start_date": "03-06-2025", "end_date": "10-06-2025"},
@@ -11,7 +10,7 @@ from datetime import datetime
 # ]
 
 
-users = []
+# users = []
 projects = []
 logged_user = ""
 format = "%d-%m-%Y"
@@ -134,11 +133,12 @@ def add_end_date(format, start_date):
         try:
             end = input("Enter the end date in format [DD-MM-YYYY] ")
             end_date = datetime.strptime(end, format).date()
-            if end_date < start_date:
+            start_date_obj = datetime.strptime(start_date, format).date()
+            if end_date < start_date_obj:
                 print(
                     "Invalid date. The end date must be after start date. Please enter a valid date.")
             else:
-                return end_date.strftime(format)
+                return end_date
         except ValueError:
             print("Invalid date format! Please try again.")
 
@@ -174,7 +174,7 @@ def create_project():
 
 def to_string(project):
     print(
-        f"Project Title: {project['title']} \nProject Details: {project['details']} \nProject Total Target is : {project["target"]} \nStarted At:{project["start_date"]} \nEnds At :{project['end_date']}\n   ")
+        f"Project Title: {project['title']} \nProject Details: {project['details']} \nProject Total Target is : {project['target']} \nStarted At:{project['start_date']} \nEnds At :{project['end_date']}\n   ")
     print("*"*50)
 
 
