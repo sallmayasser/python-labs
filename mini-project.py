@@ -2,7 +2,7 @@ import os
 import re
 from datetime import datetime
 
-users = [{"email": "salma@gmail.com", "password": "123456789"},{"email": "yasser@gmail.com", "password": "123456789"}]
+# users = [{"email": "salma@gmail.com", "password": "123456789"},{"email": "yasser@gmail.com", "password": "123456789"}]
 
 # projects = [
 # {'title': "project1", 'details': "here is project1", "target": 100000, "created_by": 'salma@gmail.com', "start_date": "03-06-2025", "end_date": "10-06-2025"},
@@ -10,7 +10,7 @@ users = [{"email": "salma@gmail.com", "password": "123456789"},{"email": "yasser
 # ]
 
 
-# users = []
+users = []
 projects = []
 logged_user = ""
 format = "%d-%m-%Y"
