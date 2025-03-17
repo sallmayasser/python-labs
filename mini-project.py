@@ -2,15 +2,15 @@ import os
 import re
 from datetime import datetime
 
-# users = [{"email": "salma@gmail.com", "password": "123456789"},{"email": "yasser@gmail.com", "password": "123456789"}]
 
+# users = [{"email": "salma@gmail.com", "password": "123456789"},{"email": "yasser@gmail.com", "password": "123456789"}]
 # projects = [
 # {'title': "project1", 'details': "here is project1", "target": 100000, "created_by": 'salma@gmail.com', "start_date": "03-06-2025", "end_date": "10-06-2025"},
 # {'title': "project2", 'details': "here is project2", "target": 500000, "created_by": 'yasser@gmail.com', "start_date": "03-07-2025", "end_date": "10-07-2025"}
 # ]
 
 
-users = []
+# users = []
 projects = []
 logged_user = ""
 format = "%d-%m-%Y"
@@ -209,10 +209,14 @@ def view_my_projects():
 
 def edit_project():
     print("Welcome in Edit page \n")
-    print("*"*25)
+    print("-"*25)
     titles = [project['title']
               for project in projects if logged_user == project['created_by']]
-    while True:
+    
+    while True:    
+        if len(titles)==0:
+            print('***There is no project***')
+            break
         print("Please enter the project number to edit it:")
         print("-"*50)
         for index, title in enumerate(titles):
@@ -320,7 +324,6 @@ def project_form():
         print('5. Delete Project')
         print('6. Search Project')
         print('7. Logout')
-        print('8. Exit')
         choice = input('\nEnter your choice: ').strip().lower()
         match choice:
             case '1':
@@ -345,9 +348,6 @@ def project_form():
             case '7':
                 os.system('clear')
                 logout()
-                break
-            case '8':
-                os.system('clear')
                 break
             case _:
                 os.system('clear')
